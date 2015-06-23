@@ -56,7 +56,7 @@ class JokeTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        println("\(self.dataArray.count)")
+//        println("\(self.dataArray.count)")
         return self.dataArray.count
     }
 
@@ -66,7 +66,7 @@ class JokeTableViewController: UITableViewController {
 
         // Configure the cell...
         cell.data = dataArray[indexPath.row]
-        println(cell.data)
+//        println(cell.data)
 
         return cell
     }
