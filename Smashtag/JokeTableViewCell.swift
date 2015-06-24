@@ -63,7 +63,7 @@ class JokeTableViewCell: UITableViewCell {
         let prefixImageId = imageId.substringToIndex(index)
         if let picture = data?["image"] as? String {
             var url = "http://pic.qiushibaike.com/system/pictures/\(prefixImageId)/\(imageId)/small/\(picture)"
-            println("\(url)")
+//            println("\(url)")
             let pictureURL = NSURL(string: url)
             
             dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0)) {
@@ -92,7 +92,7 @@ class JokeTableViewCell: UITableViewCell {
 //        formatter.timeStyle = NSDateFormatterStyle.MediumStyle
         let dateString = formatter.stringFromDate(date)
         timeLabel?.text = "\(dateString)"
-        println("\(date)")
+//        println("\(date)")
         
         var vote = data?["votes"] as! NSDictionary
         let like = vote["up"] as! Int

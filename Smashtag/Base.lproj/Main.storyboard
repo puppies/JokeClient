@@ -136,6 +136,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Spq-Pe-J4X"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="isL-eB-c9y">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refresh:" destination="us8-Ov-8wf" eventType="valueChanged" id="NIf-f5-OwO"/>
+                        </connections>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h19-gP-eeg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -19,18 +19,8 @@ class JokeTableViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         
 //        println("viewDidLoad")
-        HttpRequest.requestWithURL("http://m2.qiushibaike.com/article/list/suggest?count=20&page=1") { data in
-            
-            if let arr = data["items"] as? NSArray {
-                for item in arr {
-                    self.dataArray.insert(item as! (NSDictionary), atIndex: 0)
-                }
-//                println(self.dataArray)
-                self.tableView.reloadData()
-            }
-        }
-//        println(self.dataArray)
-        
+
+        refresh()
         
 
         // Uncomment the following line to preserve selection between presentations
@@ -39,7 +29,28 @@ class JokeTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    func refresh() {
+        HttpRequest.requestWithURL("http://m2.qiushibaike.com/article/list/suggest?count=20&page=1") { data in
+            
+            if let arr = data["items"] as? NSArray {
+                for item in arr {
+                    self.dataArray.insert(item as! (NSDictionary), atIndex: 0)
+                }
+                //                println(self.dataArray)
+                self.tableView.reloadData()
+            }
+        }
 
+    }
+
+    @IBAction func refresh(sender: UIRefreshControl) {
+        refresh()
+        refreshControl?.endRefreshing()
+        
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
