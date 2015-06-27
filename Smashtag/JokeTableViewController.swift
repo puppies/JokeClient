@@ -30,6 +30,10 @@ class JokeTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+//    override func viewWillAppear(animated: Bool) {
+//        tableView.reloadData()
+//    }
+    
     func refresh() {
         HttpRequest.requestWithURL("http://m2.qiushibaike.com/article/list/suggest?count=20&page=1") { data in
             
@@ -37,7 +41,7 @@ class JokeTableViewController: UITableViewController {
                 for item in arr {
                     self.dataArray.insert(item as! (NSDictionary), atIndex: 0)
                 }
-                //                println(self.dataArray)
+                                println(self.dataArray)
                 self.tableView.reloadData()
             }
         }

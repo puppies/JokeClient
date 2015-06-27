@@ -32,9 +32,7 @@ class JokeTableViewCell: UITableViewCell {
 //        pictureImageView?.image = nil
         
         if let user = data?["user"] as? NSDictionary {
-//            profileImageView.image = UIImage(contentsOfFile: post.profileImageURL!)
             nameLabel?.text = user["login"] as? String
-//            contentLabel.text = post.content
             let userId = user["id"] as! String
             var index = advance(userId.endIndex, -4)
             let prefixUserId = userId.substringToIndex(index)
@@ -103,5 +101,9 @@ class JokeTableViewCell: UITableViewCell {
         let comment = data?["comments_count"] as! Int
         commentLabel?.text = "评论(\(comment))"
         
+    }
+    
+    override class func requiresConstraintBasedLayout() -> Bool {
+        return true
     }
 }
